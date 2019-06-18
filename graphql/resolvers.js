@@ -1,12 +1,11 @@
-const mansub = {
-    name : "mansub",
-    age: 26 ,
-    gender : "male"
-};
-
+import people from './db';
 const resolvers = {
     Query : {
-        person :  () => mansub
+        people : ()=> people,
+        name : ()=>"mansub",
+        person : (_,args) => {
+            console.log(args);
+        }
     }
 };
-export default resolvers;
+export default resolvers;   
