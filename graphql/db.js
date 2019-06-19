@@ -1,26 +1,16 @@
+import fetch from 'node-fetch';
+const API_URL = 'https://yts.lt/api/v2/list_movies.json?'
 
-const movies = [{
-    id : 0,
-    name : "롱 리브 더 킹: 목포 영웅",
-    score: 1 ,
-},{
-    id : 1,
-    name : "토이 스토리 4",
-    score : 2,
-},{
-    id : 2,
-    name : "맨 인 블랙 인터내셔널",
-    score : 3,
-},{
-    id : 3,
-    name : "알라딘",
-    score : 4,
-}]
-
-
-export const getById = (id) => {
-    const filteredmovies = movies.filter(movie => movie.id === id);
-    // console.log(filteredpeople );
-    return filteredmovies[0]; 
+export const getMovies = (limit, rating) =>{
+    let REQUEST_URL = API_URL;
+    if(limit > 0){
+        REQUEST_URL += `limit=${limit}`;
+    }
+    if(rating > 0){
+        REQUEST_URL += `&minimum_rating=${rating}`;
+    }
+    return fetch(`${REQUEST_URL}`)
+      .then(res => res.json())
+      .then(json => json.data.movies);
 }
-export default movies;
+
