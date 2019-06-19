@@ -1,23 +1,24 @@
-const people = [{
+
+const movies = [{
     id : 0,
-    name : "mansub",
-    age: 26 ,
-    gender : "male"
+    name : "롱 리브 더 킹: 목포 영웅",
+    score: 1 ,
 },{
     id : 1,
-    name : "hyeongrae",
-    age : 28,
-    gender : "male"
+    name : "토이 스토리 4",
+    score : 2,
 },{
     id : 2,
-    name : "junho",
-    age : 28,
-    gender : "male"
+    name : "맨 인 블랙 인터내셔널",
+    score : 3,
 },{
     id : 3,
-    name : "eunbyul",
-    age : 23,
-    gender : "female"
+    name : "알라딘",
+    score : 4,
 }]
-
-export default people;
+export const getById = (id) => {
+    const filteredmovies = movies.filter(movie => movie.id === id);
+    // console.log(filteredpeople );
+    return filteredmovies[0]; 
+}
+export default movies;

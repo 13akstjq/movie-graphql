@@ -1,11 +1,10 @@
-import people from './db';
+// resolver에서는 query에 대한 선언을 하는 느낌
+
+import movies ,{getById}from './db';
 const resolvers = {
     Query : {
-        people : ()=> people,
-        name : ()=>"mansub",
-        person : (_,args) => {
-            console.log(args);
+        movies : ()=> movies,
+        movie : (_,{id}) => getById(id)
         }
-    }
 };
-export default resolvers;   
+export default resolvers;  
