@@ -16,6 +16,8 @@ const movies = [{
     name : "알라딘",
     score : 4,
 }]
+
+
 export const getById = (id) => {
     const filteredmovies = movies.filter(movie => movie.id === id);
     // console.log(filteredpeople );
